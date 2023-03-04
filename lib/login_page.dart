@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -63,10 +64,14 @@ class _LoginPageState extends State<LoginPage> {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: TextField(
-                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.black),
                   decoration: InputDecoration(
                     hintText: 'No Telepon',
-                    hintStyle: TextStyle(fontSize: 15.0, color: Colors.black),
+                    hintStyle: TextStyle(
+                        fontSize: 15.0,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
                     prefixIcon: Icon(
                       Icons.call_outlined,
                       color: Colors.black,
@@ -90,12 +95,16 @@ class _LoginPageState extends State<LoginPage> {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: TextField(
-                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.black),
                     obscureText: true,
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Password',
-                      hintStyle: TextStyle(fontSize: 15.0, color: Colors.black),
+                      hintStyle: TextStyle(
+                          fontSize: 15.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
                       prefixIcon: Icon(
                         Icons.lock_outlined,
                         color: Colors.black,
@@ -160,7 +169,12 @@ class _LoginPageState extends State<LoginPage> {
 
             //ini buat register
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RegisterPage()),
+                );
+              },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
