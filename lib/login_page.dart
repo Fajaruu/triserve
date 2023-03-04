@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'register_page.dart';
 
+//abis ini package home page harus diubah
+import 'home_page.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -27,8 +30,17 @@ class _LoginPageState extends State<LoginPage> {
                 'assets/images/logotrsv.png',
               ),
             ),
+            //sizedbox ini ntar harus diubah lagi jadi 56
             SizedBox(
-              height: 56,
+              height: 5,
+            ),
+            //kalau textbutton ini ntar diapus
+            TextButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomePage()));
+              },
+              child: Text('Go to Homepage'),
             ),
 
             //icon guest
@@ -140,23 +152,23 @@ class _LoginPageState extends State<LoginPage> {
             //ini buat sign in
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20.0),
-              child: TextButton(
-                child: Text('Sign In'),
-                style: TextButton.styleFrom(
-                  primary: Colors.black,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(30),
+                child: TextButton(
+                  child: Text('Sign In'),
+                  style: TextButton.styleFrom(
+                    primary: Colors.black,
+                    minimumSize: Size(217, 44),
+                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    textStyle: TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  minimumSize: Size(217, 44),
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  textStyle: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  onPressed: () {
+                    print('Pressed');
+                  },
                 ),
-                onPressed: () {
-                  print('Pressed');
-                },
               ),
               decoration: BoxDecoration(
                 gradient: LinearGradient(

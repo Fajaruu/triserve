@@ -17,7 +17,7 @@ class _RegisterPageState extends State<RegisterPage> {
             child: Center(
           child: Column(children: [
             SizedBox(
-              height: 25,
+              height: 20,
             ),
             Container(
               width: 154.41,
