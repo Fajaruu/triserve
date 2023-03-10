@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'register_page.dart';
-
-//abis ini package home page harus diubah
+import 'package:google_fonts/google_fonts.dart';
 import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -15,6 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
         body: SafeArea(
             child: Center(
@@ -32,15 +32,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             //sizedbox ini ntar harus diubah lagi jadi 56
             SizedBox(
-              height: 5,
-            ),
-            //kalau textbutton ini ntar diapus
-            TextButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomePage()));
-              },
-              child: Text('Go to Homepage'),
+              height: 56,
             ),
 
             //icon guest
@@ -56,14 +48,36 @@ class _LoginPageState extends State<LoginPage> {
             ),
 
             //text selamat datang
-            Text('Selamat Datang',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30)),
+            Text(
+              'Selamat Datang',
+              style: GoogleFonts.montserrat(
+                textStyle: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 30,
+                ),
+              ),
+            ),
 
             SizedBox(
               height: 11,
+            ),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Nomor Telepon',
+                  style: GoogleFonts.dmSans(
+                    textStyle: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ),
             ),
 
             //ini no telepon
@@ -72,22 +86,19 @@ class _LoginPageState extends State<LoginPage> {
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  border: Border.all(color: Colors.black, width: 1.5),
-                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: Colors.yellow, width: 1.5),
+                  borderRadius: BorderRadius.circular(8),
                 ),
                 child: TextField(
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.black),
+                  style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
-                    hintText: 'No Telepon',
+                    hintText: 'Masukkan Nomor Telepon',
                     hintStyle: TextStyle(
-                        fontSize: 15.0,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold),
-                    prefixIcon: Icon(
-                      Icons.call_outlined,
+                      fontSize: 15.0,
                       color: Colors.black,
                     ),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.fromLTRB(16.0, 12.0, 12.0, 12.0),
                   ),
                 ),
               ),
@@ -97,30 +108,44 @@ class _LoginPageState extends State<LoginPage> {
               height: 15,
             ),
 
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Kata Sandi',
+                  style: GoogleFonts.dmSans(
+                    textStyle: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
             //ini password text
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white12,
-                  border: Border.all(color: Colors.black, width: 1.5),
-                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: Colors.yellow, width: 1.5),
+                  borderRadius: BorderRadius.circular(8),
                 ),
                 child: TextField(
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.black),
+                    style: TextStyle(color: Colors.black),
                     obscureText: true,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: 'Password',
+                      hintText: 'Masukkan Kata Sandi',
                       hintStyle: TextStyle(
-                          fontSize: 15.0,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
-                      prefixIcon: Icon(
-                        Icons.lock_outlined,
+                        fontSize: 15.0,
                         color: Colors.black,
                       ),
+                      contentPadding:
+                          EdgeInsets.fromLTRB(16.0, 12.0, 12.0, 12.0),
                     )),
               ),
             ),
@@ -135,47 +160,56 @@ class _LoginPageState extends State<LoginPage> {
                   child: Text(
                     'Lupa password?',
                     style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400),
+                      decoration: TextDecoration.underline,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF561C93), // add the color here
+                    ),
                   ),
-                ),
-                style: TextButton.styleFrom(
-                  primary: Colors.black,
                 ),
                 onPressed: () {
                   print('Pressed');
                 },
               ),
             ),
+            SizedBox(
+              height: 30,
+            ),
 
             //ini buat sign in
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 20.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(30),
-                child: TextButton(
-                  child: Text('Sign In'),
-                  style: TextButton.styleFrom(
-                    primary: Colors.black,
-                    minimumSize: Size(217, 44),
-                    padding: EdgeInsets.symmetric(horizontal: 20.0),
-                    textStyle: TextStyle(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.bold,
+            GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => HomePage()));
+              },
+              child: Material(
+                color: Colors.transparent,
+                child: Ink(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Color(0xFFF8E09B), Color(0xFFDD9E41)],
+                      stops: [0.0, 0.7],
+                    ),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(30),
+                    child: Container(
+                      width: 217,
+                      height: 44,
+                      child: Center(
+                        child: Text(
+                          'Masuk',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                  onPressed: () {
-                    print('Pressed');
-                  },
                 ),
-              ),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Color(0xFFF8E09B), Color(0xFFDD9E41)],
-                  stops: [0.0, 0.7],
-                ),
-                borderRadius: BorderRadius.circular(30),
               ),
             ),
 
@@ -205,7 +239,7 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
               style: TextButton.styleFrom(
-                primary: Colors.black,
+                primary: Color(0xFF561C93),
               ),
             ),
           ],

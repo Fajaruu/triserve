@@ -1,50 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:triserve/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+class EditProfile extends StatefulWidget {
+  const EditProfile({super.key});
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<EditProfile> createState() => _EditProfileState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _EditProfileState extends State<EditProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.white,
-        body: SafeArea(
-            child: Center(
-          child: Column(children: [
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              width: 154.41,
-              height: 15,
-              child: Image.asset(
-                'assets/images/logotrsv.png',
-              ),
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            //ini
-            //buat
-            //text
-            Text(
-              'Membuat Akun',
-              style: GoogleFonts.montserrat(
-                textStyle: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 28,
-                ),
-              ),
-            ),
-
+      body: Center(
+        child: Column(
+          children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Align(
@@ -61,7 +31,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Container(
@@ -356,73 +325,9 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-
-            SizedBox(
-              height: 24,
-            ),
-            //ini
-            //button
-            //sign up
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 20.0),
-              child: TextButton(
-                child: Text('Daftar'),
-                style: TextButton.styleFrom(
-                  primary: Colors.black,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  minimumSize: Size(217, 44),
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  textStyle: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                onPressed: () {
-                  print('Pressed');
-                },
-              ),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Color(0xFFF8E09B), Color(0xFFDD9E41)],
-                  stops: [0.0, 0.7],
-                ),
-                borderRadius: BorderRadius.circular(30),
-              ),
-            ),
-            //ini
-            //buat
-            //sign in
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
-                );
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Sudah punya akun?',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
-                  ),
-                  SizedBox(width: 2.0),
-                  Text(
-                    'Masuk',
-                    style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400),
-                  ),
-                ],
-              ),
-              style: TextButton.styleFrom(
-                primary: Color(0xFF561C93),
-              ),
-            ),
-          ]),
-        )));
+          ],
+        ),
+      ),
+    );
   }
 }
