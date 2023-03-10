@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:triserve/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:triserve/akun.dart';
+import 'package:triserve/laundry_main.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -109,7 +110,12 @@ class _HomePageState extends State<HomePage> {
                   bottom: 200,
                   left: 10,
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LaundryMain()),
+                      );
+                    },
                     child: Stack(
                       children: [
                         Container(
@@ -336,7 +342,6 @@ class _HomePageState extends State<HomePage> {
                         context,
                         MaterialPageRoute(builder: (context) => AkunTrv()),
                       );
-                      // do something when the widget is tapped
                     },
                     child: Container(
                       child: Column(
