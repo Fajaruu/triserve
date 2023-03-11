@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:triserve/home_page.dart';
-import 'package:triserve/profil_edit.dart';
+import 'package:triserve/Home%20Triserve/home_page.dart';
+import 'package:triserve/Home%20Triserve/profil_edit.dart';
 
 class AkunTrv extends StatefulWidget {
   const AkunTrv({super.key});

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:triserve/login_page.dart';
+import 'package:triserve/Catering%20Triserve/catering_main.dart';
+import 'package:triserve/Home%20Triserve/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:triserve/akun.dart';
-import 'package:triserve/laundry_main.dart';
+import 'package:triserve/Home%20Triserve/akun.dart';
+import 'package:triserve/Laundry/laundry_main.dart';
+import 'package:triserve/Catering Triserve/catering_main.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -109,13 +111,14 @@ class _HomePageState extends State<HomePage> {
                 Positioned(
                   bottom: 200,
                   left: 10,
-                  child: GestureDetector(
+                  child: InkWell(
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => LaundryMain()),
                       );
                     },
+                    splashColor: Colors.grey,
                     child: Stack(
                       children: [
                         Container(
@@ -165,7 +168,12 @@ class _HomePageState extends State<HomePage> {
                   bottom: 200,
                   right: 10,
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CateringMain()),
+                      );
+                    },
                     child: Stack(
                       children: [
                         Container(

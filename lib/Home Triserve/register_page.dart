@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:triserve/login_page.dart';
+import 'package:triserve/Home%20Triserve/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -31,9 +31,7 @@ class _RegisterPageState extends State<RegisterPage> {
             SizedBox(
               height: 5,
             ),
-            //ini
-            //buat
-            //text
+            //ini buat text
             Text(
               'Membuat Akun',
               style: GoogleFonts.montserrat(
@@ -88,9 +86,7 @@ class _RegisterPageState extends State<RegisterPage> {
             SizedBox(
               height: 10,
             ),
-            //ini
-            //buat
-            //no telpon
+            //ini  buat no telepon
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Align(
@@ -134,9 +130,7 @@ class _RegisterPageState extends State<RegisterPage> {
             SizedBox(
               height: 10,
             ),
-            //ini
-            //buat
-            //email
+            //ini buat email
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -182,9 +176,7 @@ class _RegisterPageState extends State<RegisterPage> {
               height: 10,
             ),
 
-            //ini
-            //buat
-            //password
+            //ini buat password
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Align(
@@ -230,9 +222,7 @@ class _RegisterPageState extends State<RegisterPage> {
               height: 10,
             ),
 
-            //ini
-            //buat
-            //alamat
+            //ini buat alamat
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Align(
@@ -360,9 +350,7 @@ class _RegisterPageState extends State<RegisterPage> {
             SizedBox(
               height: 24,
             ),
-            //ini
-            //button
-            //sign up
+            //ini button sign up
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20.0),
               child: TextButton(
@@ -391,9 +379,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 borderRadius: BorderRadius.circular(30),
               ),
             ),
-            //ini
-            //buat
-            //sign in
+            //ini buat sign in
             TextButton(
               onPressed: () {
                 Navigator.push(

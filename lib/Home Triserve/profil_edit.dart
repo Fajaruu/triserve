@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:triserve/akun.dart';
+import 'package:triserve/Home%20Triserve/akun.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key});

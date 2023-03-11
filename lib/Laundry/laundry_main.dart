@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:triserve/akun.dart';
-import 'package:triserve/home_page.dart';
+import 'package:triserve/Home%20Triserve/home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:triserve/Laundry/laundry_kilat.dart';
 
 class LaundryMain extends StatefulWidget {
   const LaundryMain({super.key});
@@ -24,14 +24,14 @@ class _LaundryMainState extends State<LaundryMain> {
             Container(
               width: MediaQuery.of(context).size.width,
               child: Image.asset(
-                'assets/images/hpheadline1.png',
+                'assets/images/headlinelaundry.png',
                 fit: BoxFit.cover,
               ),
             ),
             Positioned(
               left: 0,
               right: 0,
-              top: 65,
+              top: 30,
               child: Column(
                 children: [
                   Padding(
@@ -51,7 +51,7 @@ class _LaundryMainState extends State<LaundryMain> {
               ),
             ),
             Positioned(
-              top: 70,
+              top: 35,
               left: 30,
               child: InkWell(
                 onTap: () {
@@ -67,7 +67,7 @@ class _LaundryMainState extends State<LaundryMain> {
               ),
             ),
             Positioned(
-              top: 230,
+              top: 180,
               left: 20.0,
               child: Container(
                 height: 40,
@@ -90,7 +90,7 @@ class _LaundryMainState extends State<LaundryMain> {
               ),
             ),
             Positioned(
-              top: 230,
+              top: 180,
               left: 90.0,
               child: Container(
                 height: 40,
@@ -113,7 +113,7 @@ class _LaundryMainState extends State<LaundryMain> {
               ),
             ),
             Positioned(
-              top: 230,
+              top: 180,
               left: 160.0,
               child: Container(
                 height: 40,
@@ -136,7 +136,7 @@ class _LaundryMainState extends State<LaundryMain> {
               ),
             ),
             Positioned(
-              top: 230,
+              top: 180,
               left: 240.0,
               child: Container(
                 height: 40,
@@ -159,7 +159,7 @@ class _LaundryMainState extends State<LaundryMain> {
               ),
             ),
             Positioned(
-              top: 230,
+              top: 180,
               left: 300.0,
               child: Container(
                 height: 40,
@@ -182,7 +182,7 @@ class _LaundryMainState extends State<LaundryMain> {
               ),
             ),
             Positioned(
-              top: 140.0,
+              top: 95.0,
               left: 30.0,
               child: Container(
                 width: 320.0,
@@ -210,7 +210,7 @@ class _LaundryMainState extends State<LaundryMain> {
                     Expanded(
                       child: TextField(
                         decoration: InputDecoration(
-                          hintText: 'Cari Toko/Produk',
+                          hintText: 'Cari Toko',
                           contentPadding:
                               EdgeInsets.symmetric(horizontal: 10.0),
                           border: InputBorder.none,
@@ -222,7 +222,7 @@ class _LaundryMainState extends State<LaundryMain> {
               ),
             ),
             Positioned(
-              bottom: 395,
+              bottom: 445,
               left: 20,
               child: Text('Toko Rekomendasi',
                   style: GoogleFonts.dmSans(
@@ -233,10 +233,16 @@ class _LaundryMainState extends State<LaundryMain> {
                   ))),
             ),
             Positioned(
-              bottom: 290,
+              bottom: 330,
               right: 25,
-              child: GestureDetector(
-                onTap: () {},
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LaundryKilat()),
+                  );
+                },
+                splashColor: Colors.grey,
                 child: Stack(
                   children: [
                     Container(
@@ -318,7 +324,7 @@ class _LaundryMainState extends State<LaundryMain> {
               ),
             ),
             Positioned(
-              bottom: 180,
+              bottom: 220,
               right: 25,
               child: GestureDetector(
                 onTap: () {},
@@ -403,7 +409,7 @@ class _LaundryMainState extends State<LaundryMain> {
               ),
             ),
             Positioned(
-              bottom: 70,
+              bottom: 110,
               right: 25,
               child: GestureDetector(
                 onTap: () {},
