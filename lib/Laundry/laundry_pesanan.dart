@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:triserve/Home%20Triserve/ubah.alamat.dart';
+import 'package:triserve/Laundry/laundry_alamat.dart';
 import 'package:triserve/Laundry/laundry_detail.dart';
+import 'package:triserve/Laundry/laundry_produk.dart';
 
 class PesananLaundry extends StatefulWidget {
   const PesananLaundry({super.key});
@@ -68,11 +71,11 @@ class _PesananLaundryState extends State<PesananLaundry> {
                   left: 30,
                   child: InkWell(
                     onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //       builder: (context) => ProdukCatering()),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ProdukLaundry()),
+                      );
                     },
                     child: Transform.scale(
                       scale: 2.0, // Set the desired scale value here
@@ -159,7 +162,7 @@ class _PesananLaundryState extends State<PesananLaundry> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => PesananLaundry()),
+                              builder: (context) => AlamatLaundry()),
                         );
                       },
                       child: Text(

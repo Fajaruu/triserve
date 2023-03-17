@@ -393,10 +393,62 @@ class _DompetKuState extends State<DompetKu> {
                         ),
                       ),
                       onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(builder: (context) => PesananLaundry()),
-                        // );
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                              backgroundColor:
+                                  Color.fromARGB(255, 209, 173, 244),
+                              title: Text(
+                                'Tambahkan Pengeluaran',
+                                style: GoogleFonts.montserrat(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              content: Container(
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.grey[100],
+                                ),
+                                padding: EdgeInsets.symmetric(horizontal: 10),
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    hintText: 'Masukkan budget',
+                                    border: InputBorder.none,
+                                  ),
+                                ),
+                              ),
+                              actions: [
+                                ElevatedButton(
+                                  child: Text(
+                                    'simpan',
+                                    style: GoogleFonts.montserrat(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w700,
+                                      color: Color.fromARGB(255, 168, 93, 249),
+                                    ),
+                                  ),
+                                  style: ElevatedButton.styleFrom(
+                                    primary:
+                                        Color.fromARGB(255, 245, 196, 133), //
+                                    onPrimary: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    // Add your code to add the category here
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                              ],
+                            );
+                          },
+                        );
                       },
                     ),
                   ],

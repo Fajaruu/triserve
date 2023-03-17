@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:triserve/Home%20Triserve/home_page.dart';
+import 'package:triserve/Home%20Triserve/login_page.dart';
 import 'package:triserve/Home%20Triserve/profil_edit.dart';
+import 'package:triserve/bloc/auth_bloc.dart';
+import 'package:triserve/util/reuse_widget.dart';
 
 class AkunTrv extends StatefulWidget {
   const AkunTrv({super.key});
@@ -196,7 +200,96 @@ class _AkunTrvState extends State<AkunTrv> {
                     left: 43,
                     child: InkWell(
                       onTap: () {
-                        // Add your navigation logic here
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                              backgroundColor: Colors.white,
+                              title: Text(
+                                'Pusat Bantuan',
+                                style: GoogleFonts.montserrat(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              content: Container(
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.grey[100],
+                                ),
+                                padding: EdgeInsets.symmetric(horizontal: 10),
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    hintText: 'Masukkan keluhan anda',
+                                    border: InputBorder.none,
+                                  ),
+                                ),
+                              ),
+                              actions: [
+                                Transform.translate(
+                                  offset: Offset(-65, 0),
+                                  child: Container(
+                                    height: 40,
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: Colors.yellow, width: 2),
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: TextButton(
+                                      child: Text(
+                                        'batal',
+                                        style: GoogleFonts.montserrat(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black),
+                                      ),
+                                      style: ElevatedButton.styleFrom(
+                                        primary: Colors.white,
+                                        onPrimary:
+                                            Color.fromARGB(255, 245, 196, 133),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                Transform.translate(
+                                  offset: Offset(-55, 0),
+                                  child: ElevatedButton(
+                                    child: Text(
+                                      'kirim',
+                                      style: GoogleFonts.montserrat(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black),
+                                    ),
+                                    style: ElevatedButton.styleFrom(
+                                      primary:
+                                          Color.fromARGB(255, 245, 196, 133), //
+                                      onPrimary: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      // Add your code to add the category here
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        );
                       },
                       child: Row(
                         children: [
@@ -218,25 +311,37 @@ class _AkunTrvState extends State<AkunTrv> {
                     left: 60,
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 20.0),
-                      child: TextButton(
-                        child: Text('Keluar'),
-                        style: TextButton.styleFrom(
-                          primary: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          minimumSize: Size(217, 44),
-                          padding: EdgeInsets.symmetric(horizontal: 20.0),
-                          textStyle: GoogleFonts.montserrat(
-                            textStyle: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w600,
+                      child: BlocListener<AuthBloc, AuthState>(
+                        listener: (context, state) {
+                          if (state is Unauthenticated) {
+                            Navigator.of(context).pushAndRemoveUntil(
+                                MaterialPageRoute(
+                                    builder: (context) => LoginPage()),
+                                (route) => false);
+                          } else if (state is AuthEror) {
+                            ReuseableWidget.showSnackBar(context, state.eror);
+                          }
+                        },
+                        child: TextButton(
+                          child: Text('Keluar'),
+                          style: TextButton.styleFrom(
+                            primary: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            minimumSize: Size(217, 44),
+                            padding: EdgeInsets.symmetric(horizontal: 20.0),
+                            textStyle: GoogleFonts.montserrat(
+                              textStyle: TextStyle(
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
+                          onPressed: () {
+                            context.read<AuthBloc>().add(LogoutEvent());
+                          },
                         ),
-                        onPressed: () {
-                          print('Pressed');
-                        },
                       ),
                       decoration: BoxDecoration(
                         gradient: LinearGradient(

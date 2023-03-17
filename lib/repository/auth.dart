@@ -1,25 +1,29 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:triserve/repository/cache.dart';
+
 class Authrepository {
-  final _baseUrl =
-      "https://1c02-2405-8740-31f1-2015-cc72-e7dd-312d-f197.ap.ngrok.io";
+  final _baseUrl = "https://bagas-ap.aenzt.tech";
   final _client = http.Client();
 
-  Future loginRepositiory(String email, String password) async {
+  Future loginRepositiory(String password, String phone) async {
     var uri = Uri.parse("$_baseUrl/api/login");
     print("data mau dikirim");
     try {
       var response = await _client.post(uri,
           headers: {"content-type": "application/json"},
-          body: json.encode({"password": "Lolos2023", "phone": "081111"}));
+          body: json.encode({"password": password, "phone": phone}));
       print("data sudah dikirim");
 
       if (response.statusCode == 200) {
         var data = json.decode(response.body);
-        print('pressed');
+        print(data);
+        await Cache.writeData(key: 'token_user', value: data['data']['token']);
+        print(data);
         return true;
       } else {
+        print(response.body);
         return false;
       }
     } catch (e) {
@@ -27,25 +31,40 @@ class Authrepository {
     }
   }
 
-  Future registerRespository(String email, String password) async {
+  Future registerRespository(
+      String name,
+      String email,
+      String password,
+      String phone,
+      String province,
+      String city,
+      String subdistrict,
+      String address) async {
     var uri = Uri.parse("$_baseUrl/api/register");
     try {
       var response = await _client.post(uri,
           headers: {"content-type": "application/json"},
           body: json.encode({
-            "name": "halo",
-            "email": "bro@gmail.com",
-            "password": "Lolos2023",
-            "phone": "082249825",
-            "province": "mlg kota",
-            "city": "kota sby",
-            "subdistrict": "suhat",
-            "address": "filkom"
+            "name": name,
+            "email": email,
+            "password": password,
+            "phone": phone,
+            "province": province,
+            "city": city,
+            "subdistrict": subdistrict,
+            "address": address,
           }));
 
-      return response.statusCode == 200 ? true : false;
+      if (response.statusCode == 201) {
+        var data = json.decode(response.body);
+        print(data);
+        return true;
+      } else {
+        print(response.body);
+        return false;
+      }
     } catch (e) {
-      throw Exception("Eror at Regitser [auth_repository]: ${e.toString()}");
+      print("Error at register [auth_repository]: ${e.toString()}");
     }
   }
 }

@@ -2,6 +2,7 @@ import 'catering_dietindo.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'catering_pesanan.dart';
+import 'catering_list.dart';
 
 class ProdukCatering extends StatefulWidget {
   const ProdukCatering({super.key});
@@ -335,7 +336,10 @@ class _ProdukCateringState extends State<ProdukCatering> {
                       ),
                     ),
                     onPressed: () {
-                      print('Pressed');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CateringList()),
+                      );
                     },
                   ),
                   decoration: BoxDecoration(
