@@ -185,7 +185,7 @@ class _LaundryKilatState extends State<LaundryKilat> {
               left: 25,
               child: GestureDetector(
                 onTap: () {},
-                child: Stack(
+                child: Row(
                   children: [
                     Container(
                       height: 190,
@@ -265,7 +265,7 @@ class _LaundryKilatState extends State<LaundryKilat> {
               right: 25,
               child: GestureDetector(
                 onTap: () {},
-                child: Stack(
+                child: Row(
                   children: [
                     Container(
                       height: 190,
@@ -336,12 +336,12 @@ class _LaundryKilatState extends State<LaundryKilat> {
               right: 25,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => ProdukLaundry()),
                   );
                 },
-                child: Stack(
+                child: Row(
                   children: [
                     Container(
                       height: 190,
@@ -412,7 +412,7 @@ class _LaundryKilatState extends State<LaundryKilat> {
               left: 25,
               child: GestureDetector(
                 onTap: () {},
-                child: Stack(
+                child: Row(
                   children: [
                     Container(
                       height: 190,

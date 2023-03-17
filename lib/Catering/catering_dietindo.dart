@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'catering_main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'catering_produk.dart';
 
 class DietIndo extends StatefulWidget {
   const DietIndo({super.key});
@@ -183,7 +184,12 @@ class _DietIndoState extends State<DietIndo> {
               bottom: 210,
               left: 25,
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProdukCatering()),
+                  );
+                },
                 child: Stack(
                   children: [
                     Container(

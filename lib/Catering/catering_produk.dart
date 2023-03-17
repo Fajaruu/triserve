@@ -1,31 +1,16 @@
+import 'catering_dietindo.dart';
 import 'package:flutter/material.dart';
-import 'laundry_kilat.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'laundry_main.dart';
-import 'laundry_pesanan.dart';
+import 'catering_pesanan.dart';
 
-class ProdukLaundry extends StatefulWidget {
-  const ProdukLaundry({super.key});
+class ProdukCatering extends StatefulWidget {
+  const ProdukCatering({super.key});
 
   @override
-  State<ProdukLaundry> createState() => _ProdukLaundryState();
+  State<ProdukCatering> createState() => _ProdukCateringState();
 }
 
-class _ProdukLaundryState extends State<ProdukLaundry> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  void _decrementCounter() {
-    setState(() {
-      _counter--;
-    });
-  }
-
+class _ProdukCateringState extends State<ProdukCatering> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +24,7 @@ class _ProdukLaundryState extends State<ProdukLaundry> {
             Container(
               width: MediaQuery.of(context).size.width,
               child: Image.asset(
-                'assets/images/detailproduklaundry.png',
+                'assets/images/detailprodukcatering.png',
                 fit: BoxFit.cover,
               ),
             ),
@@ -50,7 +35,7 @@ class _ProdukLaundryState extends State<ProdukLaundry> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => LaundryKilat()),
+                    MaterialPageRoute(builder: (context) => DietIndo()),
                   );
                 },
                 splashColor: Colors.grey,
@@ -71,7 +56,7 @@ class _ProdukLaundryState extends State<ProdukLaundry> {
                     child: Column(
                       children: [
                         Text(
-                          'Cuci Setrika/kg',
+                          'Healthy Meal Box',
                           style: GoogleFonts.montserrat(
                             textStyle: TextStyle(
                               color: Colors.black,
@@ -81,7 +66,7 @@ class _ProdukLaundryState extends State<ProdukLaundry> {
                           ),
                         ),
                         Text(
-                          'Rp. 6.000                     ',
+                          'Rp. 150.000                       ',
                           style: GoogleFonts.montserrat(
                             textStyle: TextStyle(
                               color: Color.fromARGB(255, 161, 116, 209),
@@ -94,7 +79,7 @@ class _ProdukLaundryState extends State<ProdukLaundry> {
                           height: 5,
                         ),
                         Text(
-                          'Deskripsi Produk      ',
+                          'Deskripsi Produk            ',
                           style: GoogleFonts.montserrat(
                             textStyle: TextStyle(
                               color: Colors.black,
@@ -118,7 +103,7 @@ class _ProdukLaundryState extends State<ProdukLaundry> {
               child: Column(
                 children: [
                   Text(
-                    'Dapatkan pelayanan cuci dan setrika pakaian ',
+                    'Penuhi kebutuhan dietmu dengan menu-menu ',
                     style: GoogleFonts.dmSans(
                         textStyle: TextStyle(
                       fontSize: 14,
@@ -135,7 +120,7 @@ class _ProdukLaundryState extends State<ProdukLaundry> {
               child: Column(
                 children: [
                   Text(
-                    'dengan praktis tanpa perlu mengeluarkan tenaga',
+                    'sehat dan variatif.',
                     style: GoogleFonts.dmSans(
                         textStyle: TextStyle(
                       fontSize: 14,
@@ -147,12 +132,12 @@ class _ProdukLaundryState extends State<ProdukLaundry> {
               ),
             ),
             Positioned(
-              bottom: 235,
+              bottom: 220,
               left: 26,
               child: Column(
                 children: [
                   Text(
-                    'yang cukup besar.',
+                    'Kurir kami mengirim makanan dengan estimasi',
                     style: GoogleFonts.dmSans(
                         textStyle: TextStyle(
                       fontSize: 14,
@@ -164,12 +149,12 @@ class _ProdukLaundryState extends State<ProdukLaundry> {
               ),
             ),
             Positioned(
-              bottom: 210,
+              bottom: 205,
               left: 26,
               child: Column(
                 children: [
                   Text(
-                    'Pilihan waktu penjemputan dan pengantaran',
+                    'waktu sampai sebagai berikut:',
                     style: GoogleFonts.dmSans(
                         textStyle: TextStyle(
                       fontSize: 14,
@@ -181,12 +166,12 @@ class _ProdukLaundryState extends State<ProdukLaundry> {
               ),
             ),
             Positioned(
-              bottom: 195,
+              bottom: 190,
               left: 26,
               child: Column(
                 children: [
                   Text(
-                    'A. 08.00-10.00',
+                    'Pagi: 06.30 – 07.30',
                     style: GoogleFonts.dmSans(
                         textStyle: TextStyle(
                       fontSize: 14,
@@ -198,12 +183,12 @@ class _ProdukLaundryState extends State<ProdukLaundry> {
               ),
             ),
             Positioned(
-              bottom: 180,
+              bottom: 175,
               left: 26,
               child: Column(
                 children: [
                   Text(
-                    'b. 16.00-18.00',
+                    'Siang: 10.00 – 11.00',
                     style: GoogleFonts.dmSans(
                         textStyle: TextStyle(
                       fontSize: 14,
@@ -215,7 +200,24 @@ class _ProdukLaundryState extends State<ProdukLaundry> {
               ),
             ),
             Positioned(
-              bottom: 155,
+              bottom: 160,
+              left: 26,
+              child: Column(
+                children: [
+                  Text(
+                    'Sore: 15.00 – 16.00',
+                    style: GoogleFonts.dmSans(
+                        textStyle: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black,
+                    )),
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              bottom: 135,
               left: 26,
               child: Column(
                 children: [
@@ -232,7 +234,7 @@ class _ProdukLaundryState extends State<ProdukLaundry> {
               ),
             ),
             Positioned(
-              bottom: 140,
+              bottom: 120,
               left: 26,
               child: Column(
                 children: [
@@ -249,12 +251,12 @@ class _ProdukLaundryState extends State<ProdukLaundry> {
               ),
             ),
             Positioned(
-              bottom: 125,
+              bottom: 105,
               left: 26,
               child: Column(
                 children: [
                   Text(
-                    'pembayaran',
+                    'Pembayaran ',
                     style: GoogleFonts.dmSans(
                         textStyle: TextStyle(
                       fontSize: 14,
@@ -266,101 +268,86 @@ class _ProdukLaundryState extends State<ProdukLaundry> {
               ),
             ),
             Positioned(
-              bottom: 103,
-              left: 0,
-              right: 0,
-              child: Column(
-                children: [
-                  Text(
-                    'Jumlah Pesanan',
-                    style: GoogleFonts.montserrat(
-                      textStyle: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 18,
+              bottom: 10,
+              right: 10,
+              child: SizedBox(
+                width: 180, // set the width here
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: TextButton(
+                    child: Text('Pesan'),
+                    style: TextButton.styleFrom(
+                      primary: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      minimumSize: Size(217, 44),
+                      padding: EdgeInsets.symmetric(horizontal: 20.0),
+                      textStyle: GoogleFonts.montserrat(
+                        textStyle: TextStyle(
+                          fontSize: 15.0,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CateringPesanan()),
+                      );
+                    },
                   ),
-                ],
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(0xFFC99BF8),
+                        Color.fromARGB(255, 168, 93, 249),
+                      ],
+                      stops: [0.0, 0.7],
+                    ),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
               ),
             ),
             Positioned(
-              bottom: 60,
-              left: 100,
-              child: Row(children: [
-                InkWell(
-                  onTap: _decrementCounter,
-                  child: ElevatedButton(
-                    onPressed: _decrementCounter,
-                    style: ElevatedButton.styleFrom(
+              bottom: 10,
+              left: 10,
+              child: SizedBox(
+                width: 180, // set the width here
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: TextButton(
+                    child: Text('Lihat Menu'),
+                    style: TextButton.styleFrom(
                       primary: Colors.white,
-                      shape: CircleBorder(),
-                    ),
-                    child: Image.asset('assets/images/minustap.png'),
-                  ),
-                ),
-                SizedBox(width: 10),
-                Text(
-                  '$_counter kg',
-                  style: GoogleFonts.dmSans(
-                      textStyle: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
-                          color: Color.fromARGB(255, 180, 48, 201))),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                InkWell(
-                  onTap: _incrementCounter,
-                  child: ElevatedButton(
-                    onPressed: _incrementCounter,
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.white,
-                      shape: CircleBorder(),
-                    ),
-                    child: Image.asset('assets/images/plustap.png'),
-                  ),
-                ),
-              ]),
-            ),
-            Positioned(
-              bottom: 5,
-              right: 60,
-              child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 20.0),
-                child: TextButton(
-                  child: Text('Pesan'),
-                  style: TextButton.styleFrom(
-                    primary: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    minimumSize: Size(217, 44),
-                    padding: EdgeInsets.symmetric(horizontal: 20.0),
-                    textStyle: GoogleFonts.montserrat(
-                      textStyle: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.w600,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      minimumSize: Size(217, 44),
+                      padding: EdgeInsets.symmetric(horizontal: 20.0),
+                      textStyle: GoogleFonts.montserrat(
+                        textStyle: TextStyle(
+                          fontSize: 15.0,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
+                    onPressed: () {
+                      print('Pressed');
+                    },
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => PesananLaundry()),
-                    );
-                  },
-                ),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color(0xFFC99BF8),
-                      Color.fromARGB(255, 168, 93, 249),
-                    ],
-                    stops: [0.0, 0.7],
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(0xFFC99BF8),
+                        Color.fromARGB(255, 168, 93, 249),
+                      ],
+                      stops: [0.0, 0.7],
+                    ),
+                    borderRadius: BorderRadius.circular(30),
                   ),
-                  borderRadius: BorderRadius.circular(30),
                 ),
               ),
             )

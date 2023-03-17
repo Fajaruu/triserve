@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:triserve/Catering/catering_favorit.dart';
 import 'package:triserve/Home%20Triserve/home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:triserve/Laundry/laundry_kilat.dart';
+import 'package:triserve/Home Triserve/pesananku.dart';
+import 'package:triserve/Catering/catering_pesanan.dart';
 
 class LaundryMain extends StatefulWidget {
   const LaundryMain({super.key});
@@ -535,7 +538,10 @@ class _LaundryMainState extends State<LaundryMain> {
               left: 160,
               child: InkWell(
                 onTap: () {
-                  // do something when the widget is tapped
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => KuPesanan()),
+                  );
                 },
                 child: Container(
                   child: Column(
@@ -558,7 +564,12 @@ class _LaundryMainState extends State<LaundryMain> {
               bottom: 6,
               left: 275,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CateringFavorit()),
+                  );
+                },
                 child: Container(
                   child: Column(
                     children: [

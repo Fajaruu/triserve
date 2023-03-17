@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:triserve/Catering%20Triserve/catering_main.dart';
-import 'package:triserve/Home%20Triserve/login_page.dart';
+import 'package:triserve/Catering/catering_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:triserve/Home%20Triserve/akun.dart';
 import 'package:triserve/Laundry/laundry_main.dart';
-import 'package:triserve/Catering Triserve/catering_main.dart';
+import 'package:triserve/Home Triserve/pesananku.dart';
+import 'notifikasi.dart';
+import 'package:triserve/DompetKu/dompetku_main.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -90,11 +91,19 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Positioned(
-                  bottom: 347,
-                  left: 35,
-                  right: -250,
-                  child: Image.asset(
-                    'assets/images/notification.png',
+                  top: 45,
+                  right: 30,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => TriserveNotifikasi()),
+                      );
+                    },
+                    child: Image.asset(
+                      'assets/images/notification.png',
+                    ),
                   ),
                 ),
                 Positioned(
@@ -223,7 +232,12 @@ class _HomePageState extends State<HomePage> {
                   bottom: 90,
                   left: 20,
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => DompetKu()),
+                      );
+                    },
                     child: Stack(
                       children: [
                         Container(
@@ -281,28 +295,26 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Positioned(
-                  left: 60,
-                  bottom: 13,
+                  left: 50,
+                  bottom: 10,
                   child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginPage()),
-                      );
-                    },
+                    onTap: () {},
                     child: Container(
-                      width: 96,
-                      height: 30,
+                      width: 100,
+                      height: 40,
                       decoration: BoxDecoration(
                         color: Color(0xFFFFF59D),
-                        borderRadius: BorderRadius.circular(12.0),
+                        borderRadius: BorderRadius.circular(14.0),
                       ),
                       child: Row(
                         children: [
                           SizedBox(
                             width: 15,
                           ),
-                          Icon(Icons.home),
+                          Image.asset('assets/images/homeicon.png'),
+                          SizedBox(
+                            width: 5,
+                          ),
                           Text(
                             "home",
                             style: GoogleFonts.dmSans(
@@ -319,15 +331,18 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Positioned(
                   bottom: 6,
-                  left: 180,
+                  left: 190,
                   child: InkWell(
                     onTap: () {
-                      // do something when the widget is tapped
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => KuPesanan()),
+                      );
                     },
                     child: Container(
                       child: Column(
                         children: [
-                          Icon(Icons.checklist),
+                          Image.asset('assets/images/pesanan.png'),
                           Text(
                             "pesanan",
                             style: GoogleFonts.dmSans(
@@ -343,7 +358,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Positioned(
                   bottom: 6,
-                  left: 270,
+                  left: 290,
                   child: InkWell(
                     onTap: () {
                       Navigator.push(
@@ -354,7 +369,7 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       child: Column(
                         children: [
-                          Icon(Icons.person_pin_outlined),
+                          Image.asset('assets/images/akun.png'),
                           Text(
                             "akun",
                             style: GoogleFonts.dmSans(

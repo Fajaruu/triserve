@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:triserve/bloc/auth_bloc.dart';
 import 'register_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home_page.dart';
@@ -11,6 +13,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController password = TextEditingController();
+  TextEditingController phone = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,6 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: TextField(
+                  controller: phone,
                   style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     hintText: 'Masukkan Nomor Telepon',
@@ -135,6 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: TextField(
+                    controller: password,
                     style: TextStyle(color: Colors.black),
                     obscureText: true,
                     decoration: InputDecoration(
@@ -179,8 +186,12 @@ class _LoginPageState extends State<LoginPage> {
             //ini buat sign in
             GestureDetector(
               onTap: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => HomePage()));
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => HomePage()),
+                // );4
+                context.read<AuthBloc>().add(
+                    LoginEvent(password: password.text, phone: phone.text));
               },
               child: Material(
                 color: Colors.transparent,

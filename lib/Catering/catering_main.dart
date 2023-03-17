@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:triserve/Catering/catering_dietindo.dart';
 import 'package:triserve/Home%20Triserve/home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'catering_dietindo.dart';
+import 'catering_favorit.dart';
+import 'package:triserve/Home Triserve/pesananku.dart';
 
 class CateringMain extends StatefulWidget {
   const CateringMain({super.key});
@@ -535,7 +537,10 @@ class _CateringMainState extends State<CateringMain> {
               left: 160,
               child: InkWell(
                 onTap: () {
-                  // do something when the widget is tapped
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => KuPesanan()),
+                  );
                 },
                 child: Container(
                   child: Column(
@@ -558,7 +563,12 @@ class _CateringMainState extends State<CateringMain> {
               bottom: 6,
               left: 275,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CateringFavorit()),
+                  );
+                },
                 child: Container(
                   child: Column(
                     children: [
